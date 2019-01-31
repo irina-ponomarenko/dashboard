@@ -1,0 +1,165 @@
+/*-----------------------fonts-------------------*/
+@font-face {
+    font-family: 'PF Highway Sans Pro';
+    src: url('fonts/PFHighwaySansPro-Regular.woff2') format('woff2'),
+    url('fonts/PFHighwaySansPro-Regular.woff') format('woff'),
+    url('fonts/PFHighwaySansPro-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+/*---------------------new style-------------------------*/
+
+* {
+    font-family: 'PF Highway Sans Pro';
+}
+.panel-body-top{
+    border: 1px solid #e3e3e3;
+}
+.dashboard h3{
+    font-size: 20px;
+    color: #00a000;
+    font-weight: normal;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.dashboard .summary span{
+    font-size: 8px;
+    font-weight: normal;
+    color: #9a9a9a;
+    text-transform: uppercase;
+}
+.dashboard-width{
+    max-width: 1088px;
+    width: 100%;
+}
+.dashboard .summary {
+    text-align: center;
+    line-height: 9px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+.dashboard-bg{
+    background-color: #edf3f6;
+}
+.digits-style{
+    padding-top: 5px;
+}
+.panel {
+    margin-bottom: 5px;
+}
+.badge {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    padding: 3px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1;
+    vertical-align: baseline;
+    white-space: nowrap;
+    text-align: center;
+    background-color: #999;
+    border-radius: 100%;
+}
+.panel-footer {
+    padding: 11px 8px;
+    background-color: #edf3f6;
+    border-top: none;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+.legend-style,
+.wrapper-dadge{
+    display: flex;
+    align-items: center;
+}
+.wrapper-dadge{
+    margin-right: 20px;
+}
+.legend-style{
+    margin-top: 10px;
+}
+.legend-style span{
+    margin-left: 8px;
+}
+.heading-style{
+    display: flex;
+    align-items: flex-start;
+    font-size: 18px;
+    padding: 15px;
+    border-bottom: 1px solid #e4e4e4;
+}
+.margin-bar{
+    padding-top: 5px;
+}
+.donuts-style{
+    background-color: #ffffff;
+}
+.graph-info-wrapper{
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 82px;
+    width: 100%;
+    margin-right: 10px;
+}
+.graph-footer{
+    color: #333231;
+    font-size: 10px;
+}
+.graph-width{
+    max-width: 200px;
+    max-height: 200px;
+}
+.panel-flex{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #efefef;
+    margin-bottom: 10px;
+    border-top: none;
+}
+.panel-graph,
+.header-donut{
+    margin-bottom: 10px;
+    background: #fff;
+}
+.header-block-charts{
+    border-bottom: 1px solid #e3e3e3;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.header-charts{
+    border: 1px solid #e3e3e3;
+    border-radius: 0;
+    margin-top: 10px;
+    padding: 10px;
+    display: flex;
+    align-items: flex-start;
+    font-size: 10px;
+    text-transform: uppercase;
+    color: #333231 !important;
+    line-height: 10px;
+}
+.control-charts{
+    width: 10rem !important;
+    font-size: 10px;
+    color: #6a635f;
+    padding: 7px 11px;
+    border: 1px solid #ededed;
+    outline: none;
+    cursor: pointer;
+}
+select.control-charts{
+    -webkit-appearance: none;
+    background-image: url("img/Chevron-Down.png");
+    background-repeat: no-repeat;
+    background-size: 8px 6px;
+    background-position: 90% 50%;
+}

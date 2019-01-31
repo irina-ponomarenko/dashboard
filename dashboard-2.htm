@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Axioma IS</title>
+    <link href="http://voxelpro.ru/js/bootstrap-datepicker/css/datepicker-custom.css" rel="stylesheet">
+	<link href="http://voxelpro.ru/assets/16e33a1e/css/bootstrap.css" rel="stylesheet">
+	<link href="http://voxelpro.ru/css/style.css" rel="stylesheet">
+    <link href="new-style.css" rel="stylesheet">
+	<link href="http://voxelpro.ru/css/style-responsive.css" rel="stylesheet">
+</head>
+
+<body class="sticky-header left-side-collapsed">
+
+<div class="wrapper dashboard dashboard-bg">
+    <div class="row digits digits-style">
+        <div class="col-sm-3 col-xs-12">
+            <div class="panel">
+                <div class="panel-body-top">
+                    <div class="summary">
+                        <h3>15.2%</h3>
+                        <span>Выполнение плана к текущему моменту</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3 col-xs-12">
+            <div class="panel">
+                <div class="panel-body-top">
+                    <div class="summary">
+                        <h3>42.8% (248 310 руб.)</h3>
+                        <span>Выполнение плана по результатам прогноза</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-2 col-xs-12">
+            <div class="panel">
+                <div class="panel-body-top">
+                    <div class="summary">
+                        <h3>88 110.00</h3>
+                        <span>Сумма доходов за месяц</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-2 col-xs-12">
+            <div class="panel">
+                <div class="panel-body-top">
+                    <div class="summary">
+                        <h3>177.55</h3>
+                        <span>Сумма затрат за месяц</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-2 col-xs-12">
+            <div class="panel">
+                <div class="panel-body-top">
+                    <div class="summary">
+                        <h3>472 302.45</h3>
+                        <span>Чистая выручка за месяц</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row bar margin-bar">
+        <div class="col-sm-12 panel-graph">
+            <div class="panel">
+                <div class="panel-heading heading-style">
+                    Выполнение плана по обороту
+                </div>
+                <div class="panel-body">
+                    <!--                    <div id="graph-bar"></div>-->
+                    <canvas id="debetBarChart" width="100%" height="25%"></canvas>
+                    <div class="bar-legend dim-y">Процент выполнения</div>
+                    <div class="bar-legend dim-x">Дни месяца</div>
+                    <div class="summary">
+                        Январь                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row donuts donuts-style">
+        <div class="col-sm-12" style="margin-bottom: -5px; padding: 0 5px;">
+            <div class="panel">
+                <div class="panel-heading header-block-charts">
+                    Выполнение плана
+
+                    <div class="dashboard-changer">
+                        <form id="changer" action="/" method="get">
+
+                            <select class="type-list  control-charts" name="type">
+                                <option value="month" selected>Месяц</option>
+                                <option value="day">День</option>
+                            </select>
+                            <select class="month-list control-charts" name="" style="">
+                                <option value="01" selected>Январь</option>
+                                <option value="02">Февраль</option>
+                                <option value="03">Март</option>
+                                <option value="04">Апрель</option>
+                                <option value="05">Май</option>
+                                <option value="06">Июнь</option>
+                                <option value="07">Июль</option>
+                                <option value="08">Август</option>
+                                <option value="09">Сентябрь</option>
+                                <option value="10">Октябрь</option>
+                                <option value="11">Ноябрь</option>
+                                <option value="12">Декабрь</option>
+                            </select>
+                            <input class="select-date control-charts" style="display: none" type="text" name="date" value="27.01.2019">
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3 col-xs-12 max-width-col">
+            <div class="panel">
+                <div class="panel-heading header-charts">
+                    <!--Выполнение плана -->По доходу
+                </div>
+                <div class="panel-body panel-flex">
+                    <div class="graph-info-wrapper ">
+                    <span class="graph-footer">
+                        План 580 000.00
+                    </span>
+                        <span class="graph-footer">
+                        Факт 88 110.00
+                    </span>
+                    </div>
+                    <canvas id="graph-profit"  class="graph-width" width="100%" height="100%"></canvas>
+<!--                    <div id="graph-profit" class="donut-graph"></div>-->
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3 col-xs-12 max-width-col">
+            <div class="panel">
+                <div class="panel-heading header-charts">
+                    <!--Выполнение плана -->По расходам
+                </div>
+                <div class="panel-body panel-flex">
+                    <div class="graph-info-wrapper ">
+                    <span class="graph-footer">
+                        План 150 000.00
+                    </span>
+                    <span class="graph-footer">
+                        Факт 0.07
+                    </span>
+                    </div>
+                    <canvas id="graph-expend"  class="graph-width" width="100%" height="100%"></canvas>
+<!--                    TODO инвертировать правила подсветки для расходов-->
+<!--                    <div id="graph-expend" class="rdonut-graph"></div>-->
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3 col-xs-12 max-width-col">
+            <div class="panel">
+                <div class="panel-heading header-charts">
+                    <!--Выполнение плана -->По среднему чеку
+                </div>
+                <div class="panel-body panel-flex">
+                    <div class="graph-info-wrapper ">
+                    <span class="graph-footer">
+                       План 1 250.00
+                    </span>
+                    <span class="graph-footer">
+                       Факт 1 012.76
+                    </span>
+                    </div>
+                    <canvas id="graph-average" class="graph-width" width="100%" height="100%"></canvas>
+<!--                    <div id="graph-average" class="donut-graph"></div>-->
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3 col-xs-12 max-width-col">
+            <div class="panel">
+                <div class="panel-heading header-charts">
+                    <!--Выполнение плана -->По кол-ву исследований
+                </div>
+                <div class="panel-body panel-flex">
+                    <div class="graph-info-wrapper ">
+                    <span class="graph-footer">
+                      План 480
+                    </span>
+                    <span class="graph-footer">
+                       Факт 87
+                    </span>
+                    </div>
+                    <canvas id="graph-researches"  class="graph-width" width="100%" height="100%"></canvas>
+<!--                    <div id="graph-researches" class="donut-graph"></div>-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row donuts_legend">
+        <div class="col-sm-12" style="margin-top: -10px;">
+            <div class="panel-footer dashboard-legend legend-style">
+                <div class="wrapper-dadge">
+                    <div class="badge" style="background-color: #00a000"> </div> <span>План выполнен</span>
+                </div>
+                <div class="wrapper-dadge">
+                    <div class="badge" style="background-color: #ffd200"> </div> <span>Факт ниже 100%</span>
+                </div>
+                <div class="wrapper-dadge">
+                    <div class="badge" style="background-color: #f24841"> </div> <span>Факт ниже 80%</span>
+                </div>
+                <div class="wrapper-dadge">
+                    <div class="badge" style="background-color: #c3c3c3"> </div> <span>План</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!--body wrapper end-->
+
+
+    </div>
+    <!-- main content end-->
+</section>
+
+
+<script src="http://voxelpro.ru/assets/5b7773aa/jquery.js"></script>
+<script src="http://voxelpro.ru/assets/16e33a1e/js/bootstrap.js"></script>
+<script src="http://voxelpro.ru/js/chart-js/Chart.bundle.js"></script>
+<script src="http://voxelpro.ru/js/bootstrap-datepicker/js/bootstrap-datepicker.js?2"></script>
+<script src="http://voxelpro.ru/js/bootstrap-datepicker/locales/bootstrap-datepicker.ru.min.js"></script>
+
+<script>jQuery(function ($) {
+
+$(".type-list").on("change", function () {
+    if ($(this).val() == 'day') {
+        $(".select-date").show();
+        $(".month-list").hide();
+    } else {
+        $(".month-list").show();
+        $(".select-date").hide();
+    }
+});
+$(".month-list").on("change", function () {
+    var month = $(this).val();
+    var date = '01.'+month+'.2019';
+    $(".select-date").val(date);
+
+});
+
+$('.select-date').datepicker({
+        format: 'dd.mm.yyyy',
+        autoclose: true,
+        language: 'ru',
+    });
+
+$(".form-control").on("change", function () {
+    $("#changer").submit();
+});
+
+
+var profit = document.getElementById("graph-profit").getContext('2d');
+var donut = new Chart(profit, {
+    type: 'doughnut',
+        data: {
+        labels: [],
+        datasets: [{
+            data: [107520, 472480.00],
+            backgroundColor: [
+                'rgba(195, 195, 195, 1)',
+                '#00a100',
+            ],
+        }]
+    },
+});
+
+var expend = document.getElementById("graph-expend").getContext('2d');
+var donut = new Chart(expend, {
+    type: 'doughnut',
+        data: {
+        labels: [],
+        datasets: [{
+            //label: 'Выполнение плана по обороту',
+            data: [149822.45, 177.55],
+            backgroundColor: [
+                'rgba(195, 195, 195, 1)',
+                '#ff1300',
+            ],
+        }]
+    },
+});
+
+var average = document.getElementById("graph-average").getContext('2d');
+var donut = new Chart(average, {
+    type: 'doughnut',
+        data: {
+        labels: [],
+        datasets: [{
+            //label: 'Выполнение плана по обороту',
+            data: [1250, 1012.76],
+            backgroundColor: [
+                'rgba(195, 195, 195, 1)',
+                '#ffd200',
+            ],
+        }]
+    },
+});
+
+var researches = document.getElementById("graph-researches").getContext('2d');
+var donut = new Chart(researches, {
+    type: 'doughnut',
+        data: {
+        labels: [],
+        datasets: [{
+            // label: 'Выполнение плана по обороту',
+            data: [480, 87],
+            backgroundColor: [
+                'rgba(195, 195, 195, 1)',
+                '#00a100',
+            ],
+        }]
+    },
+});
+
+var ctx = document.getElementById("debetBarChart").getContext('2d');
+var debetBarChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ["01","02","03","04","05","06","07","08","09",10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31],
+        datasets: [{
+            label: '',
+            data: [0,0,0,35.3,63.1,38.2,0,71.4,150.5,88.2,129.3,71.4,61.8,171.6,168.1,141.6,217.3,159.5,72.4,30.2,122.4,120.5,139.5,159.5,145.4,92.7,36.3,31,0,0,0],
+            backgroundColor: ["#f24841","#f24841","#f24841","#f24841","#ffd200","#f24841","#f24841","#ffd200","#00a000","#ffd200","#00a000","#ffd200","#ffd200","#00a000","#00a000","#00a000","#00a000","#00a000","#ffd200","#f24841","#00a000","#00a000","#00a000","#00a000","#00a000","#00a000","#f24841","#f24841","#f24841","#f24841","#f24841"],
+        },
+        {
+            label: '',
+            data: [100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,0,0,0],
+            backgroundColor: ["#CCC","#CCC","#CCC","#CCC","#CCC","#CCC","#CCC","#CCC","#CCC","#CCC","#CCC","#CCC","#CCC","#CCC","#CCC","#CCC","#CCC","#CCC","#CCC","#CCC","#CCC","#CCC","#CCC","#CCC","#CCC","#CCC","#CCC","#CCC","#CCC","#CCC","#CCC"],
+        }]
+    },
+    options: {
+        scales: {
+            xAxes: [{
+                stacked: true
+            }],
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
+});
+
+});
+</script>
+</body>
+</html>
