@@ -155,12 +155,13 @@
 }
 .control-charts{
     width: 10rem !important;
-    font-size: 10px;
+    font-size: 12px;
     color: #6a635f;
     padding: 7px 11px;
     border: 1px solid #ededed;
     outline: none;
     cursor: pointer;
+    font-weight: normal;
 }
 select.control-charts{
     -webkit-appearance: none;
