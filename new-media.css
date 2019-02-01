@@ -18,6 +18,12 @@
     .dashboard h3 {
         font-size: 18px;
     }
+    .navigation-search {
+        max-width: 455px;
+    }
+    .form-control-search{
+        padding: 4px;
+    }
 }
 @media only screen and (max-width : 1000px) and (min-width : 771px) {
     .graph-width{
