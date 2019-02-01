@@ -19,17 +19,35 @@
 <div class="wrapper dashboard dashboard-bg">
     <!-- page navigation start-->
     <div class="row top-navigation">
-        <div class="col-md-2 col-xs-12 header-dash-block">
+        <div class="col-md-4 col-xs-12 header-dash-block">
             <h2 class="top-header-title">Календарь</h2>
         </div>
         <div class="col-md-7 col-xs-12 wrapper-form-search">
-            <div class="pencil-search"></div>
-            <form class="navbar-form navbar-left navigation-search" role="search">
-                <div class="form-group-search">
-                    <input type="text" class="form-control-search" placeholder="Искать">
-                </div>
-                <button type="submit" class="btn-default-search"></button>
-            </form>
+            <div class="dashboard-changer">
+                <form id="changer" action="/" method="get">
+
+                    <select class="type-list  control-charts" name="type">
+                        <option value="month" selected>Месяц</option>
+                        <option value="day">День</option>
+                    </select>
+                    <select class="month-list control-charts" name="" style="">
+                        <option value="01" selected>Январь</option>
+                        <option value="02">Февраль</option>
+                        <option value="03">Март</option>
+                        <option value="04">Апрель</option>
+                        <option value="05">Май</option>
+                        <option value="06">Июнь</option>
+                        <option value="07">Июль</option>
+                        <option value="08">Август</option>
+                        <option value="09">Сентябрь</option>
+                        <option value="10">Октябрь</option>
+                        <option value="11">Ноябрь</option>
+                        <option value="12">Декабрь</option>
+                    </select>
+                    <input class="select-date control-charts" style="display: none" type="text" name="date" value="27.01.2019">
+
+                </form>
+            </div>
         </div>
 
         <div class="col-md-3 col-xs-12">
@@ -124,32 +142,6 @@
             <div class="panel">
                 <div class="panel-heading header-block-charts">
                     Выполнение плана
-
-                    <div class="dashboard-changer">
-                        <form id="changer" action="/" method="get">
-
-                            <select class="type-list  control-charts" name="type">
-                                <option value="month" selected>Месяц</option>
-                                <option value="day">День</option>
-                            </select>
-                            <select class="month-list control-charts" name="" style="">
-                                <option value="01" selected>Январь</option>
-                                <option value="02">Февраль</option>
-                                <option value="03">Март</option>
-                                <option value="04">Апрель</option>
-                                <option value="05">Май</option>
-                                <option value="06">Июнь</option>
-                                <option value="07">Июль</option>
-                                <option value="08">Август</option>
-                                <option value="09">Сентябрь</option>
-                                <option value="10">Октябрь</option>
-                                <option value="11">Ноябрь</option>
-                                <option value="12">Декабрь</option>
-                            </select>
-                            <input class="select-date control-charts" style="display: none" type="text" name="date" value="27.01.2019">
-
-                        </form>
-                    </div>
                 </div>
             </div>
         </div>
@@ -253,10 +245,7 @@
 </div>
 <!--body wrapper end-->
 
-
-    </div>
     <!-- main content end-->
-</section>
 
 
 <script src="http://voxelpro.ru/assets/5b7773aa/jquery.js"></script>
@@ -298,7 +287,7 @@ var profit = document.getElementById("graph-profit").getContext('2d');
 var donut = new Chart(profit, {
     type: 'doughnut',
         data: {
-        labels: ["План", "Оборот"],
+        labels: [ ],
         datasets: [{
             data: [107520, 472480.00],
             backgroundColor: [
@@ -313,7 +302,7 @@ var expend = document.getElementById("graph-expend").getContext('2d');
 var donut = new Chart(expend, {
     type: 'doughnut',
         data: {
-        labels: ["План", "Расходы"],
+        labels: [ ],
         datasets: [{
             //label: 'Выполнение плана по обороту',
             data: [149822.45, 177.55],
@@ -329,7 +318,7 @@ var average = document.getElementById("graph-average").getContext('2d');
 var donut = new Chart(average, {
     type: 'doughnut',
         data: {
-        labels: ["План", "Средний чек"],
+        labels: [],
         datasets: [{
             //label: 'Выполнение плана по обороту',
             data: [1250, 1012.76],
@@ -345,7 +334,7 @@ var researches = document.getElementById("graph-researches").getContext('2d');
 var donut = new Chart(researches, {
     type: 'doughnut',
         data: {
-        labels: ["План", "Проведено исследований"],
+        labels: [],
         datasets: [{
             // label: 'Выполнение плана по обороту',
             data: [480, 87],

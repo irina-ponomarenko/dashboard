@@ -163,6 +163,7 @@
     outline: none;
     cursor: pointer;
     font-weight: normal;
+    background: hsl(0, 0%, 93%);
 }
 select.control-charts{
     -webkit-appearance: none;
@@ -228,4 +229,6 @@ select.control-charts{
 .wrapper-form-search{
     display: flex;
     align-items: center;
+    justify-content: flex-end;
+    margin-top: 6px;
 }

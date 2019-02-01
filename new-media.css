@@ -53,6 +53,7 @@
     .wrapper-form-search{
         display: flex;
         justify-content: center;
+        margin: 5px 0;
     }
     .top-header-title{
         font-size: 20px;
