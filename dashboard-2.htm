@@ -11,11 +11,45 @@
 	<link href="http://voxelpro.ru/css/style.css" rel="stylesheet">
     <link href="new-style.css" rel="stylesheet">
 	<link href="http://voxelpro.ru/css/style-responsive.css" rel="stylesheet">
+    <link href="new-media.css" rel="stylesheet">
 </head>
 
 <body class="sticky-header left-side-collapsed">
 
 <div class="wrapper dashboard dashboard-bg">
+    <!-- page navigation start-->
+    <div class="row top-navigation">
+        <div class="col-md-2 col-xs-12 header-dash-block">
+            <h2 class="top-header-title">Календарь</h2>
+        </div>
+        <div class="col-md-7 col-xs-12 wrapper-form-search">
+            <div class="pencil-search"></div>
+            <form class="navbar-form navbar-left navigation-search" role="search">
+                <div class="form-group-search">
+                    <input type="text" class="form-control-search" placeholder="Искать">
+                </div>
+                <button type="submit" class="btn-default-search"></button>
+            </form>
+        </div>
+
+        <div class="col-md-3 col-xs-12">
+
+            <div class="date page-navigation-date-top">
+                <div class="date-container">
+                    <div class="date-fulldate">31.01.2019</div>
+
+                    <div class="date-weekday">Четверг</div>
+                </div>
+
+                <div class="time-container">
+                    <div class="time-currenttime">14:20</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- page navigation end -->
     <div class="row digits digits-style">
         <div class="col-sm-3 col-xs-12">
             <div class="panel">
@@ -264,7 +298,7 @@ var profit = document.getElementById("graph-profit").getContext('2d');
 var donut = new Chart(profit, {
     type: 'doughnut',
         data: {
-        labels: [],
+        labels: ["План", "Оборот"],
         datasets: [{
             data: [107520, 472480.00],
             backgroundColor: [
@@ -279,7 +313,7 @@ var expend = document.getElementById("graph-expend").getContext('2d');
 var donut = new Chart(expend, {
     type: 'doughnut',
         data: {
-        labels: [],
+        labels: ["План", "Расходы"],
         datasets: [{
             //label: 'Выполнение плана по обороту',
             data: [149822.45, 177.55],
@@ -295,7 +329,7 @@ var average = document.getElementById("graph-average").getContext('2d');
 var donut = new Chart(average, {
     type: 'doughnut',
         data: {
-        labels: [],
+        labels: ["План", "Средний чек"],
         datasets: [{
             //label: 'Выполнение плана по обороту',
             data: [1250, 1012.76],
@@ -311,7 +345,7 @@ var researches = document.getElementById("graph-researches").getContext('2d');
 var donut = new Chart(researches, {
     type: 'doughnut',
         data: {
-        labels: [],
+        labels: ["План", "Проведено исследований"],
         datasets: [{
             // label: 'Выполнение плана по обороту',
             data: [480, 87],
